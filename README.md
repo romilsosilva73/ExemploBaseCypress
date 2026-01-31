@@ -84,10 +84,6 @@ npx cypress open
 ⚡ Modo Terminal (Headless)
 npx cypress run
 
----
----
----
-
 <a id="english"></a>
 # English
 

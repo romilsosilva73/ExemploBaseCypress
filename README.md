@@ -15,7 +15,7 @@ Em vez de repetir blocos de código complexos em todos os testes, utilizamos os 
 * **Legibilidade:** O teste principal (`MAIN.cy.js`) torna-se muito mais limpo, focando apenas no fluxo de negócio.
 * **Reutilização:** Um mesmo comando pode ser usado por múltiplos arquivos de teste, reduzindo a duplicidade de código.
 
-### 📍 Locators & Data Factory (O "Onde" e "O quê")
+### 📁 Locators & Data Factory (O "Onde" e "O quê")
 O arquivo `locators.js` é a "única fonte" para dados e seletores.
 
 * **Centralização:** Se um endpoint de API mudar ou um ID de um botão no site for alterado, a manutenção é feita em um único arquivo.

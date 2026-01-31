@@ -45,18 +45,27 @@ Cada ID gerado no cadastro é acompanhado até o fim do fluxo:
 
 
 ### 1. Pré-requisitos
-* Node.js instalado (versão 14 ou superior).
-* NPM ou Yarn.
+
+Antes de começar, você vai precisar ter instalado em sua máquina:
+* **[Node.js](https://nodejs.org/en/)** (Versão 18 ou superior recomendada).
+* **NPM** (Já vem instalado com o Node) ou **Yarn**.
+* **Git** (Para clonar o repositório).
 
 ### 2. Instalação
-No terminal, dentro da pasta do projeto:
+Primeiro, clone o repositório e entre na pasta. No terminal, execute:
+
 ```bash
+# Instalar as dependências do projeto
 npm install
 
-## 3. Rodando os Testes
-Para abrir o painel interativo do Cypress (Interface Gráfica):
-```bash
+### 3. Rodando os Testes
+
+#### 🖥️ Interface Gráfica (Interativo)
+Para abrir o painel do Cypress, onde você pode escolher qual teste rodar e visualizar a execução em tempo real:
+
 npx cypress open
 
-## 4.Para rodar todos os testes em modo terminal (Headless - ideal para CI/CD):
+⚡ Modo Terminal (Headless)
+Para rodar todos os testes em segundo plano (ideal para integração contínua - CI/CD):
+
 npx cypress run

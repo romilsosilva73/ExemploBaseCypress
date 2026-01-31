@@ -2,14 +2,11 @@
 
 [**Português**](#português) | [**English**](#english)
 
----
-
 <a name="português"></a>
-## 🇧🇷 Português
+# 🇧🇷 Português
 
 Este repositório contém um framework de automação híbrido utilizando **Cypress**, focado em centralização de seletores (**Locators**) e a criação de ações reutilizáveis (**Custom Commands**).
 
----
 
 ## 📍 Arquitetura e Estratégia
 
@@ -76,10 +73,10 @@ Antes de começar, você vai precisar ter instalado:
 
 ### 2. Instalação
 
-## Instalar as dependências do projeto
+Instalar as dependências do projeto
 npm install
 
-3. Rodando os Testes
+### 3. Rodando os Testes
 
 🖥️ Interface Gráfica (Interativo)
 npx cypress open
@@ -87,15 +84,15 @@ npx cypress open
 ⚡ Modo Terminal (Headless)
 npx cypress run
 
+---
+---
+---
 
 <a id="english"></a>
-🇺🇸 English
-
-## English
+# English
 
 This repository contains a hybrid automation framework using **Cypress**, focused on selector centralization (**Locators**) and the creation of reusable actions (**Custom Commands**).
 
----
 
 ## 📍 Architecture and Strategy
 
@@ -169,9 +166,9 @@ Validation of navigation and search functionality on the Venturus website.
 ### Installation
 npm install
 
-🖥️Running the Tests
+### Running the Tests
 
-Interactive mode:
+🖥️ Interactive mode:
 npx cypress open
 
 ⚡ Headless mode:

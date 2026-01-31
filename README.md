@@ -22,7 +22,7 @@ Em vez de repetir blocos de código complexos em todos os testes, utilizamos os 
 * **Legibilidade:** O teste principal (`MAIN.cy.js`) torna-se muito mais limpo, focando apenas no fluxo de negócio.
 * **Reutilização:** Um mesmo comando pode ser usado por múltiplos arquivos de teste, reduzindo a duplicidade de código.
 
-### 📁 Locators & Data Factory (O "Onde" e "O quê")
+### 📁 Locators 
 O arquivo `locators.js` é a "única fonte" para dados e seletores.
 
 * **Centralização:** Se um endpoint de API mudar ou um ID de um botão no site for alterado, a manutenção é feita em um único arquivo.
@@ -76,15 +76,15 @@ Antes de começar, você vai precisar ter instalado:
 
 ### 2. Instalação
 
-# Instalar as dependências do projeto
+## Instalar as dependências do projeto
 npm install
 
 3. Rodando os Testes
+
 🖥️ Interface Gráfica (Interativo)
-
 npx cypress open
-⚡ Modo Terminal (Headless)
 
+⚡ Modo Terminal (Headless)
 npx cypress run
 
 
@@ -97,11 +97,11 @@ This repository contains a hybrid automation framework using **Cypress**, focuse
 
 ---
 
-## Architecture and Strategy
+## 📍 Architecture and Strategy
 
 The architecture of this project was designed to decouple **Test Logic** from **Technical Implementation**, using patterns that facilitate maintenance and scalability.
 
-### Custom Commands
+### 🛠️ Custom Commands
 
 Instead of repeating complex code blocks in every test, we use **Cypress Commands** located within each context (Back-end / Front-end).
 
@@ -109,7 +109,7 @@ Instead of repeating complex code blocks in every test, we use **Cypress Command
 - **Readability:** The main test file (`MAIN.cy.js`) becomes much cleaner, focusing solely on business logic.
 - **Reusability:** The same command can be used across multiple test files, reducing code duplication.
 
-### Locators & Data Factory (The "Where" and the "What")
+### 📁 Locators 
 
 The `locators.js` file serves as the **single source of truth** for data and selectors.
 
@@ -118,7 +118,7 @@ The `locators.js` file serves as the **single source of truth** for data and sel
 
 ---
 
-## Project Structure
+## 🏗️ Project Structure
 
 The project is divided into two main fronts, organized by domains according to the folder structure.
 
@@ -140,9 +140,9 @@ Validation of navigation and search functionality on the Venturus website.
 
 ---
 
-## Test Coverage
+## 🧪 Test Coverage
 
-### Back-end (API ServeRest)
+### 📡 Back-end (API ServeRest)
 
 - Registration with a dynamic email to avoid duplication.
 - Listing validation with ID verification.
@@ -150,7 +150,7 @@ Validation of navigation and search functionality on the Venturus website.
 - Editing (PUT) with persistence validation.
 - Deletion (DELETE) to ensure idempotency and environment health.
 
-### Front-end (Web Venturus)
+### 🖥️ Front-end (Web Venturus)
 
 - Secure navigation and URL consistency validation.
 - Dynamic search using centralized locator data.
@@ -158,7 +158,7 @@ Validation of navigation and search functionality on the Venturus website.
 
 ---
 
-## How to Run the Project
+## 🚀 How to Run the Project
 
 ### Requirements
 
@@ -169,12 +169,10 @@ Validation of navigation and search functionality on the Venturus website.
 ### Installation
 npm install
 
-
-Running the Tests
+🖥️Running the Tests
 
 Interactive mode:
 npx cypress open
 
-
-Headless mode:
+⚡ Headless mode:
 npx cypress run

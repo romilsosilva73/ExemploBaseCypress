@@ -91,8 +91,6 @@ npx cypress run
 <a id="english"></a>
 🇺🇸 English
 
-# Cypress Automation Framework - Web & API
-
 ## English
 
 This repository contains a hybrid automation framework using **Cypress**, focused on selector centralization (**Locators**) and the creation of reusable actions (**Custom Commands**).

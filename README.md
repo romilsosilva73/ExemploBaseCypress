@@ -9,6 +9,21 @@
 
 Este repositório contém um framework de automação híbrido utilizando **Cypress**, focado em centralização de seletores (**Locators**) e a criação de ações reutilizáveis (**Custom Commands**).
 
+cypress/
+├── e2e/
+│   ├── backend/
+│   │   └── MAIN.cy.js
+│   └── frontend/
+│       └── MAIN.cy.js
+├── support/
+│   ├── backend/
+│   │   ├── commands.js
+│   │   └── locators.js
+│   └── frontend/
+│       ├── commands.js
+│       └── locators.js
+└── ...
+
 ------------------------------------------------------------------------------------
 
 ## 📍 Arquitetura e Estratégia
@@ -95,6 +110,20 @@ npx cypress run
 
 This repository contains a hybrid automation framework using **Cypress**, focused on selector centralization (**Locators**) and the creation of reusable actions (**Custom Commands**).
 
+cypress/
+├── e2e/
+│   ├── backend/
+│   │   └── MAIN.cy.js
+│   └── frontend/
+│       └── MAIN.cy.js
+├── support/
+│   ├── backend/
+│   │   ├── commands.js
+│   │   └── locators.js
+│   └── frontend/
+│       ├── commands.js
+│       └── locators.js
+└── ...
 ---
 
 ## Architecture and Strategy

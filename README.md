@@ -5,7 +5,7 @@
 <a name="português"></a>
 # 🇧🇷 Português
 
-Este repositório contém um framework de automação híbrido utilizando **Cypress**, focado em centralização de seletores (**Locators**) e a criação de ações reutilizáveis (**Custom Commands**).
+Este repositório contém um framework de automação híbrido utilizando **Cypress**, focado em centralização de elementos (**Locators**) e a criação de ações reutilizáveis (**Custom Commands**).
 
 
 ## 📍 Arquitetura e Estratégia
@@ -87,7 +87,7 @@ npx cypress run
 <a id="english"></a>
 # English
 
-This repository contains a hybrid automation framework using **Cypress**, focused on selector centralization (**Locators**) and the creation of reusable actions (**Custom Commands**).
+This repository contains a hybrid automation framework using **Cypress**, focused on centralization of elements (**Locators**) and the creation of reusable actions (**Custom Commands**).
 
 
 ## 📍 Architecture and Strategy

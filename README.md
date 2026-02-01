@@ -5,8 +5,7 @@
 <a name="português"></a>
 # 🇧🇷 Português
 
-Este repositório contém um framework de automação híbrido utilizando **Cypress**, focado em centralização de elementos (**Locators**) e a criação de ações reutilizáveis (**Custom Commands**).
-
+Este repositório contém uma estrutura de automação híbrida utilizando Cypress, focada em Comandos Customizados (Custom Commands) e centralização de elementos (Locators Repository).
 
 ## 📍 Arquitetura e Estratégia
 
@@ -20,10 +19,12 @@ Em vez de repetir blocos de código complexos em todos os testes, utilizamos os 
 * **Reutilização:** Um mesmo comando pode ser usado por múltiplos arquivos de teste, reduzindo a duplicidade de código.
 
 ### 📁 Locators 
-O arquivo `locators.js` é a "única fonte" para dados e seletores.
 
-* **Centralização:** Se um endpoint de API mudar ou um ID de um botão no site for alterado, a manutenção é feita em um único arquivo.
-* **Dinamicidade:** Permite a manipulação de massas de dados de forma organizada (ex: uso de *Spread Operator* para e-mails dinâmicos).
+O arquivo `locators.js` centraliza os **selectors de UI**, **endpoints de API** e **dados de teste** utilizados nos cenários automatizados.
+
+* **Centralização:** Caso um endpoint de API ou um selector da interface seja alterado, a manutenção é realizada em um único arquivo, reduzindo impacto e esforço de manutenção.
+* **Dinamicidade:** Permite a organização e geração de massas de dados de forma estruturada, incluindo o uso de técnicas como *Spread Operator* para criação de dados dinâmicos (ex.: e-mails únicos).
+
 
 ------------------------------------------------------------------------------------
 
@@ -84,10 +85,17 @@ npx cypress open
 ⚡ Modo Terminal (Headless)
 npx cypress run
 
+## 📚 Referências
+
+- 🛠️ [Custom Commands](https://docs.cypress.io/api/cypress-api/custom-commands)
+- 📡 [API Automation](https://docs.cypress.io/api/commands/request)
+- 🎯 [Selecting Elements](https://docs.cypress.io/app/core-concepts/best-practices#Selecting-Elements)
+
+
 <a id="english"></a>
 # English
 
-This repository contains a hybrid automation framework using **Cypress**, focused on centralization of elements (**Locators**) and the creation of reusable actions (**Custom Commands**).
+This repository contains a hybrid automation framework using Cypress, focused on Custom Commands and centralized Locator Repository elements.
 
 
 ## 📍 Architecture and Strategy
@@ -104,10 +112,11 @@ Instead of repeating complex code blocks in every test, we use **Cypress Command
 
 ### 📁 Locators 
 
-The `locators.js` file serves as the **single source of truth** for data and selectors.
+The `locators.js` file centralizes the **UI selectors**, **API endpoints**, and **test data** used in automated scenarios.
 
-- **Centralization:** If an API endpoint changes or a button ID on the website is updated, maintenance is performed in a single file.
-- **Dynamism:** Allows organized data mass manipulation (e.g., using the Spread Operator for dynamic emails).
+* **Centralization:** If an API endpoint or interface selector is changed, maintenance is performed in a single file, reducing impact and maintenance effort.
+
+* **Dynamism:** Allows the organization and generation of data sets in a structured way, including the use of techniques such as *Spread Operator* for creating dynamic data (e.g., unique emails).
 
 ---
 

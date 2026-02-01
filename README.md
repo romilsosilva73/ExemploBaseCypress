@@ -1,3 +1,4 @@
+
 # 🚀 Cypress Automation Framework - Web & API
 
 [**Português**](#português) | [**English**](#english)

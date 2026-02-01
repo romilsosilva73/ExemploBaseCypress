@@ -5,7 +5,7 @@
 <a name="português"></a>
 # 🇧🇷 Português
 
-Este repositório contém uma estrutura de automação híbrida utilizando Cypress, focada em Comandos Customizados (Custom Commands) e centralização de elementos (Locators Repository).
+Este repositório contém uma estrutura de automação híbrida utilizando Cypress, focada em Comandos Customizados (Custom Commands) e centralização de elementos (Locator Repository).
 
 ## 📍 Arquitetura e Estratégia
 
@@ -75,6 +75,8 @@ Antes de começar, você vai precisar ter instalado:
 ### 2. Instalação
 
 Instalar as dependências do projeto
+
+bash
 npm install
 
 ### 3. Rodando os Testes
@@ -178,3 +180,9 @@ npx cypress open
 
 ⚡ Headless mode:
 npx cypress run
+
+## 📚 References
+
+- 🛠️ [Custom Commands](https://docs.cypress.io/api/cypress-api/custom-commands)
+- 📡 [API Automation](https://docs.cypress.io/api/commands/request)
+- 🎯 [Selecting Elements](https://docs.cypress.io/app/core-concepts/best-practices#Selecting-Elements)

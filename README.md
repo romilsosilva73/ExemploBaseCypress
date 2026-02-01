@@ -74,17 +74,15 @@ Antes de começar, você vai precisar ter instalado:
 
 ### 2. Instalação
 
-Instalar as dependências do projeto
-
-bash
+Instalar as dependências do projeto:
 npm install
 
 ### 3. Rodando os Testes
 
-🖥️ Interface Gráfica (Interativo)
+🖥️ Interface Gráfica (Interativo):
 npx cypress open
 
-⚡ Modo Terminal (Headless)
+⚡ Modo Terminal (Headless):
 npx cypress run
 
 ## 📚 Referências
@@ -170,7 +168,7 @@ Validation of navigation and search functionality on the Venturus website.
 - NPM or Yarn
 - Git
 
-### Installation
+### Installation:
 npm install
 
 ### Running the Tests

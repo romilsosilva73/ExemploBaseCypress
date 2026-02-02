@@ -87,10 +87,13 @@ Foco em estabilidade e interface:
 ## 🧪 Como Executar o Projeto
 
 ### 1. Pré-requisitos
+
 Antes de começar, você vai precisar ter instalado:
-* **Node.js** (Versão 18 ou superior recomendada).
-* **NPM** ou **Yarn**.
-* **Git**.
+
+![Node](https://img.shields.io/badge/node-v22.17.1-339933?logo=node.js&logoColor=white)
+![npm](https://img.shields.io/badge/npm-v10.9.2-CB3837?logo=npm&logoColor=white)
+![Cypress](https://img.shields.io/badge/cypress-v15.9.0-17202C?logo=cypress&logoColor=white)
+![Electron](https://img.shields.io/badge/electron-v37.6.0-47848F?logo=electron&logoColor=white).
 
 ### 2. Instalação
 
@@ -184,11 +187,12 @@ Validation of navigation and search functionality on the Venturus website.
 
 ### 1. Requirements
 
+Before you begin, you will need to have the following installed:
+
 ![Node](https://img.shields.io/badge/node-v22.17.1-339933?logo=node.js&logoColor=white)
+![npm](https://img.shields.io/badge/npm-v10.9.2-CB3837?logo=npm&logoColor=white)
 ![Cypress](https://img.shields.io/badge/cypress-v15.9.0-17202C?logo=cypress&logoColor=white)
 ![Electron](https://img.shields.io/badge/electron-v37.6.0-47848F?logo=electron&logoColor=white)
-![Node Bundled](https://img.shields.io/badge/node--bundled-v22.19.0-6DA55F?logo=node.js&logoColor=white)
-
 
 ### 2. Installation:
 npm install

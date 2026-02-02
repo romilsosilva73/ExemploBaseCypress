@@ -122,10 +122,27 @@ Antes de começar, você vai precisar ter instalado:
 ![npm](https://img.shields.io/badge/npm-v10.9.2-CB3837?logo=npm&logoColor=white)
 ![Cypress](https://img.shields.io/badge/cypress-v15.9.0-17202C?logo=cypress&logoColor=white)
 
-### 2. Instalação
+### 2. Instalação e Configuração
 
-Instalar as dependências do projeto:
+1. Clone o repositório:
+```bash
+git clone https://github.com/romilsosilva73/ExemploBaseCypress.git
+```
+
+2. Abrir o CMD na pasta do projeto:
+Navegue até o diretório onde o projeto foi clonado e abra o terminal (CMD ou PowerShell).
+
+
+3. Instalar as dependências:
+```bash
 npm install
+```
+
+
+4. Abrir o Cypress (Interface Visual): Para escolher os testes e acompanhar a execução em tempo real, use o comando:
+```bash
+npx cypress open
+```
 
 ------------------------------------------------------------------------------------
 
@@ -138,13 +155,11 @@ npx cypress run --spec "cypress/e2e/**/*.cy.js"
 
 Opção 2 - Executar apenas o Back-end 
 ```bash
-
 npx cypress run --spec "cypress/e2e/Back-end/**/*.cy.js"
 ```
 
 Opção 3 — Executar apenas o Front-end
 ```bash
-
 npx cypress run --spec "cypress/e2e/Front-end/**/*.cy.js"
 ```
 

@@ -8,7 +8,7 @@
 
 Este repositório contém uma estrutura de automação híbrida utilizando Cypress, focada em Comandos Customizados (Custom Commands) e centralização de elementos (Locator Repository).
 
-```text
+```md
 ExemploBaseCypress/
 ├── cypress/
 │   ├── e2e/

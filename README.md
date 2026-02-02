@@ -6,7 +6,7 @@
 <a name="português"></a>
 # 🇧🇷 Português
 
-Este repositório contém uma estrutura de automação híbrida utilizando Cypress, focada em Comandos Customizados (Custom Commands) e centralização de elementos (Locator Repository).
+Este repositório contém uma estrutura de automação híbrida utilizando Cypress, abrangendo testes de Front-end (Web) e Back-end (API), com foco na reutilização de comandos por meio de Custom Commands, na centralização de elementos e dados (Locator Repository) e na integração entre camadas.
 
 ```md
 ExemploBaseCypress/
@@ -45,6 +45,32 @@ O arquivo `locators.js` centraliza os **selectors de UI**, **endpoints de API** 
 * **Centralização:** Caso um endpoint de API ou um selector da interface seja alterado, a manutenção é realizada em um único arquivo, reduzindo impacto e esforço de manutenção.
 * **Dinamicidade:** Permite a organização e geração de massas de dados de forma estruturada, incluindo o uso de técnicas como *Spread Operator* para criação de dados dinâmicos (ex.: e-mails únicos).
 
+### 🔗 Integração Front-end + Back-end
+
+Além da separação por domínio (Web e API), o projeto permite a integração de comandos e dados de Back-end diretamente em testes de Front-end**.
+
+Essa abordagem possibilita:
+
+- Reutilização de comandos de API em diferentes contextos
+- Criação e limpeza de massa de dados via API antes ou durante testes Web
+- Demonstração prática de testes híbridos (UI + API)
+
+### 🎯 Execução Isolada por Camada
+
+A separação entre Back-end (API) e Front-end (Web) foi pensada, desde o início,
+para permitir a **execução isolada de suítes de teste**, conforme a necessidade
+do contexto.
+
+Com essa abordagem, é possível:
+
+- Executar uma suíte focada exclusivamente em **validações de API**, sem dependência de interface
+- Validar regras de negócio, contratos e persistência de dados de forma mais rápida
+- Utilizar os testes de Back-end como base para testes de regressão e smoke tests
+- Reduzir o custo de execução quando o objetivo for validar apenas as APIs
+
+Essa estratégia oferece maior flexibilidade na execução dos testes e facilita
+a adaptação do framework a diferentes pipelines e cenários de validação.
+
 ------------------------------------------------------------------------------------
 
 ## 🏗️ Estrutura do Projeto
@@ -80,6 +106,8 @@ Foco em estabilidade e interface:
 * **Navegação Segura**: Validação de acesso e consistência da URL institucional.
 * **Busca Dinâmica**: Interação com o campo de pesquisa utilizando dados centralizados nos locators.
 * **Gerenciamento de Estado**: Limpeza de `LocalStorage`, `SessionStorage` e `Cookies` via `beforeEach` para garantir execução isolada.
+* **Integração com API**: Utilização de comandos de Back-end em cenários Web.
+
 
 ------------------------------------------------------------------------------------
 
@@ -116,8 +144,7 @@ npx cypress run
 <a id="english"></a>
 # English
 
-This repository contains a hybrid automation framework using Cypress, focused on Custom Commands and centralized Locator Repository elements.
-
+This repository contains a hybrid automation framework using Cypress, covering both front-end (web) and back-end (API) testing, focusing on command reuse through custom commands, centralization of elements and data (Locator Repository), and integration between layers.
 
 ## 📍 Architecture and Strategy
 
@@ -138,6 +165,20 @@ The `locators.js` file centralizes the **UI selectors**, **API endpoints**, and 
 * **Centralization:** If an API endpoint or interface selector is changed, maintenance is performed in a single file, reducing impact and maintenance effort.
 
 * **Dynamism:** Allows the organization and generation of data sets in a structured way, including the use of techniques such as *Spread Operator* for creating dynamic data (e.g., unique emails).
+
+### 🔗 Front-end + Back-end Integration
+In addition to domain separation, this framework allows the integration of Back-end commands and data directly into Front-end tests. This enables:
+
+- Reuse of API commands across different testing contexts.
+- Fast Data Management: Creation and cleanup of test data via API during Web test execution.
+- Hybrid Testing (UI + API): Validating that UI actions are correctly reflected in the database/API in real-time.
+
+### 🎯 Isolated Execution by Layer
+The architecture supports the isolated execution of test suites. Depending on the context, you can:
+
+- Run suites focused exclusively on API validation, with no UI overhead.
+- Rapidly validate business rules, contracts, and data persistence.
+- Use Back-end tests as a reliable foundation for CI/CD pipelines and smoke tests.
 
 ---
 
@@ -178,6 +219,7 @@ Validation of navigation and search functionality on the Venturus website.
 - Secure navigation and URL consistency validation.
 - Dynamic search using centralized locator data.
 - LocalStorage, SessionStorage, and Cookies cleanup via `beforeEach`.
+- API Integration: Leveraging Back-end commands within Web scenarios for end-to-end validation.
 
 ---
 

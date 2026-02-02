@@ -47,7 +47,7 @@ O arquivo `locators.js` centraliza os **selectors de UI**, **endpoints de API** 
 
 ### 🔗 Integração Front-end + Back-end
 
-Além da separação por domínio (Web e API), o projeto permite a integração de comandos e dados de Back-end diretamente em testes de Front-end**.
+Além da separação por domínio (Web e API), o projeto permite a integração de comandos e dados de Back-end diretamente em testes de Front-end*.
 
 Essa abordagem possibilita:
 

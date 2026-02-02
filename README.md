@@ -45,7 +45,6 @@ O arquivo `locators.js` centraliza os **selectors de UI**, **endpoints de API** 
 * **Centralização:** Caso um endpoint de API ou um selector da interface seja alterado, a manutenção é realizada em um único arquivo, reduzindo impacto e esforço de manutenção.
 * **Dinamicidade:** Permite a organização e geração de massas de dados de forma estruturada, incluindo o uso de técnicas como *Spread Operator* para criação de dados dinâmicos (ex.: e-mails únicos).
 
-
 ------------------------------------------------------------------------------------
 
 ## 🏗️ Estrutura do Projeto
@@ -93,7 +92,6 @@ Antes de começar, você vai precisar ter instalado:
 ![Node](https://img.shields.io/badge/node-v22.17.1-339933?logo=node.js&logoColor=white)
 ![npm](https://img.shields.io/badge/npm-v10.9.2-CB3837?logo=npm&logoColor=white)
 ![Cypress](https://img.shields.io/badge/cypress-v15.9.0-17202C?logo=cypress&logoColor=white)
-![Electron](https://img.shields.io/badge/electron-v37.6.0-47848F?logo=electron&logoColor=white).
 
 ### 2. Instalação
 
@@ -192,7 +190,6 @@ Before you begin, you will need to have the following installed:
 ![Node](https://img.shields.io/badge/node-v22.17.1-339933?logo=node.js&logoColor=white)
 ![npm](https://img.shields.io/badge/npm-v10.9.2-CB3837?logo=npm&logoColor=white)
 ![Cypress](https://img.shields.io/badge/cypress-v15.9.0-17202C?logo=cypress&logoColor=white)
-![Electron](https://img.shields.io/badge/electron-v37.6.0-47848F?logo=electron&logoColor=white)
 
 ### 2. Installation:
 npm install

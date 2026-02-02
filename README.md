@@ -21,6 +21,7 @@ ExemploBaseCypress/
 │   │       ├── locators.js
 │   │       └── MAIN.cy.js
 │   └── support/
+│           └── commands.js
 ├── node_modules/
 ├── .gitignore
 ├── cypress.config.js

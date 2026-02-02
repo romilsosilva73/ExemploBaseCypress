@@ -163,16 +163,16 @@ Validation of navigation and search functionality on the Venturus website.
 
 ## 🚀 How to Run the Project
 
-### Requirements
+### 1. Requirements
 
 - Node.js (version 18 or higher recommended)
 - NPM or Yarn
 - Git
 
-### Installation:
+### 2. Installation:
 npm install
 
-### Running the Tests
+### 3. Running the Tests
 
 🖥️ Interactive mode:
 npx cypress open

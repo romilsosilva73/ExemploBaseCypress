@@ -26,7 +26,7 @@ ExemploBaseCypress/
 ├── cypress.config.js
 └── README.md
 
-
+```
 ## 📍 Arquitetura e Estratégia
 
 A arquitetura deste projeto foi desenhada para separar a **Lógica de Teste** da **Implementação Técnica**, utilizando padrões que facilitam a manutenção e a escala.

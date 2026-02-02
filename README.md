@@ -8,6 +8,26 @@
 
 Este repositório contém uma estrutura de automação híbrida utilizando Cypress, focada em Comandos Customizados (Custom Commands) e centralização de elementos (Locator Repository).
 
+###
+
+ExemploBaseCypress/
+├── cypress/
+│   ├── e2e/
+│   │   ├── Back-end/
+│   │   │   ├── commands.js
+│   │   │   ├── locators.js
+│   │   │   └── MAIN.cy.js
+│   │   └── Front-end/
+│   │       ├── commands.js
+│   │       ├── locators.js
+│   │       └── MAIN.cy.js
+│   └── support/
+├── node_modules/
+├── .gitignore
+├── cypress.config.js
+└── README.md
+
+
 ## 📍 Arquitetura e Estratégia
 
 A arquitetura deste projeto foi desenhada para separar a **Lógica de Teste** da **Implementação Técnica**, utilizando padrões que facilitam a manutenção e a escala.

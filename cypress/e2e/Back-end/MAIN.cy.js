@@ -1,6 +1,8 @@
 /// <reference types="cypress" />
+
+//import './commands'
 import { locators as loc } from './locators';
-import './commands'
+
 
 describe('ServeRest - Fluxo de Backend de Usuários', () => {
 

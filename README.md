@@ -1,16 +1,32 @@
+
 # 🚀 Cypress Automation Framework - Web & API
 
 [**Português**](#português) | [**English**](#english)
 
----
-
 <a name="português"></a>
-## 🇧🇷 Português
+# 🇧🇷 Português
 
-Este repositório contém um framework de automação híbrido utilizando **Cypress**, focado em centralização de seletores (**Locators**) e a criação de ações reutilizáveis (**Custom Commands**).
+Este repositório contém uma estrutura de automação híbrida utilizando Cypress, abrangendo testes de Front-end (Web) e Back-end (API), com foco na reutilização de comandos por meio de Custom Commands, na centralização de elementos e dados (Locator Repository) e na integração entre camadas.
 
-------------------------------------------------------------------------------------
+```md
+ExemploBaseCypress/
+├── cypress/
+│   ├── e2e/
+│   │   ├── Back-end/
+│   │   │   ├── commands.js
+│   │   │   ├── locators.js
+│   │   │   └── MAIN.cy.js
+│   │   └── Front-end/
+│   │       ├── commands.js
+│   │       ├── locators.js
+│   │       └── MAIN.cy.js
+│   └── support/
+├── node_modules/
+├── .gitignore
+├── cypress.config.js
+└── README.md
 
+```
 ## 📍 Arquitetura e Estratégia
 
 A arquitetura deste projeto foi desenhada para separar a **Lógica de Teste** da **Implementação Técnica**, utilizando padrões que facilitam a manutenção e a escala.
@@ -22,11 +38,38 @@ Em vez de repetir blocos de código complexos em todos os testes, utilizamos os 
 * **Legibilidade:** O teste principal (`MAIN.cy.js`) torna-se muito mais limpo, focando apenas no fluxo de negócio.
 * **Reutilização:** Um mesmo comando pode ser usado por múltiplos arquivos de teste, reduzindo a duplicidade de código.
 
-### 📁 Locators & Data Factory (O "Onde" e "O quê")
-O arquivo `locators.js` é a "única fonte" para dados e seletores.
+### 📁 Locators 
 
-* **Centralização:** Se um endpoint de API mudar ou um ID de um botão no site for alterado, a manutenção é feita em um único arquivo.
-* **Dinamicidade:** Permite a manipulação de massas de dados de forma organizada (ex: uso de *Spread Operator* para e-mails dinâmicos).
+O arquivo `locators.js` centraliza os **selectors de UI**, **endpoints de API** e **dados de teste** utilizados nos cenários automatizados.
+
+* **Centralização:** Caso um endpoint de API ou um selector da interface seja alterado, a manutenção é realizada em um único arquivo, reduzindo impacto e esforço de manutenção.
+* **Dinamicidade:** Permite a organização e geração de massas de dados de forma estruturada, incluindo o uso de técnicas como *Spread Operator* para criação de dados dinâmicos (ex.: e-mails únicos).
+
+### 🔗 Integração Front-end + Back-end
+
+Além da separação por domínio (Web e API), o projeto permite a integração de comandos e dados de Back-end diretamente em testes de Front-end*.
+
+Essa abordagem possibilita:
+
+- Reutilização de comandos de API em diferentes contextos
+- Criação e limpeza de massa de dados via API antes ou durante testes Web
+- Demonstração prática de testes híbridos (UI + API)
+
+### 🎯 Execução Isolada por Camada
+
+A separação entre Back-end (API) e Front-end (Web) foi pensada, desde o início,
+para permitir a **execução isolada de suítes de teste**, conforme a necessidade
+do contexto.
+
+Com essa abordagem, é possível:
+
+- Executar uma suíte focada exclusivamente em **validações de API**, sem dependência de interface
+- Validar regras de negócio, contratos e persistência de dados de forma mais rápida
+- Utilizar os testes de Back-end como base para testes de regressão e smoke tests
+- Reduzir o custo de execução quando o objetivo for validar apenas as APIs
+
+Essa estratégia oferece maior flexibilidade na execução dos testes e facilita
+a adaptação do framework a diferentes pipelines e cenários de validação.
 
 ------------------------------------------------------------------------------------
 
@@ -63,116 +106,146 @@ Foco em estabilidade e interface:
 * **Navegação Segura**: Validação de acesso e consistência da URL institucional.
 * **Busca Dinâmica**: Interação com o campo de pesquisa utilizando dados centralizados nos locators.
 * **Gerenciamento de Estado**: Limpeza de `LocalStorage`, `SessionStorage` e `Cookies` via `beforeEach` para garantir execução isolada.
+* **Integração com API**: Utilização de comandos de Back-end em cenários Web.
+
 
 ------------------------------------------------------------------------------------
 
-## 🚀 Como Executar o Projeto
+## 🧪 Como Executar o Projeto
 
 ### 1. Pré-requisitos
+
 Antes de começar, você vai precisar ter instalado:
-* **Node.js** (Versão 18 ou superior recomendada).
-* **NPM** ou **Yarn**.
-* **Git**.
+
+![Node](https://img.shields.io/badge/node-v22.17.1-339933?logo=node.js&logoColor=white)
+![npm](https://img.shields.io/badge/npm-v10.9.2-CB3837?logo=npm&logoColor=white)
+![Cypress](https://img.shields.io/badge/cypress-v15.9.0-17202C?logo=cypress&logoColor=white)
 
 ### 2. Instalação
-```bash
-# Instalar as dependências do projeto
+
+Instalar as dependências do projeto:
 npm install
 
-3. Rodando os Testes
-🖥️ Interface Gráfica (Interativo)
-Bash
+### 3. Rodando os Testes
+
+🖥️ Interface Gráfica (Interativo):
 npx cypress open
-⚡ Modo Terminal (Headless)
-Bash
+
+⚡ Modo Terminal (Headless):
 npx cypress run
 
+## 📚 Referências
 
-<a name="english"></a>
+- 🛠️ [Custom Commands](https://docs.cypress.io/api/cypress-api/custom-commands)
+- 📡 [API Automation](https://docs.cypress.io/api/commands/request)
+- 🎯 [Selecting Elements](https://docs.cypress.io/app/core-concepts/best-practices#Selecting-Elements)
 
-🇺🇸 English
-🚀 Cypress Automation Framework - Web & API
-This repository contains a hybrid automation framework using Cypress, focused on selector centralization (Locators) and the creation of reusable actions (Custom Commands).
 
-📍 Architecture and Strategy
-The architecture of this project was designed to decouple Test Logic from Technical Implementation, using patterns that facilitate maintenance and scalability.
+<a id="english"></a>
+# English
 
-🛠️ Custom Commands
-Instead of repeating complex code blocks in every test, we use Cypress Commands located within each context (Back-end/Front-end).
+This repository contains a hybrid automation framework using Cypress, covering both front-end (web) and back-end (API) testing, focusing on command reuse through custom commands, centralization of elements and data (Locator Repository), and integration between layers.
 
-Encapsulation: We hide the complexity of API requests (headers, methods, status codes) and repetitive UI interactions.
+## 📍 Architecture and Strategy
 
-Readability: The main test file (MAIN.cy.js) becomes much cleaner, focusing solely on the business logic.
+The architecture of this project was designed to decouple **Test Logic** from **Technical Implementation**, using patterns that facilitate maintenance and scalability.
 
-Re Loftability: The same command can be used across multiple test files, reducing code duplication.
+### 🛠️ Custom Commands
 
-📁 Locators & Data Factory (The "Where" and the "What")
-The locators.js file serves as the "single source of truth" for data and selectors.
+Instead of repeating complex code blocks in every test, we use **Cypress Commands** located within each context (Back-end / Front-end).
 
-Centralization: If an API endpoint changes or a button ID on the website is updated, maintenance is performed in a single file.
+- **Encapsulation:** We hide the complexity of API requests (headers, methods, status codes) and repetitive UI interactions.
+- **Readability:** The main test file (`MAIN.cy.js`) becomes much cleaner, focusing solely on business logic.
+- **Reusability:** The same command can be used across multiple test files, reducing code duplication.
 
-Dynamism: Allows for organized data mass manipulation (e.g., using the Spread Operator for dynamic emails).
+### 📁 Locators 
 
-🏗️ Project Structure
-The project is divided into two main fronts, organized by domains according to the folder structure:
+The `locators.js` file centralizes the **UI selectors**, **API endpoints**, and **test data** used in automated scenarios.
 
-1. Back-end (API)
+* **Centralization:** If an API endpoint or interface selector is changed, maintenance is performed in a single file, reducing impact and maintenance effort.
+
+* **Dynamism:** Allows the organization and generation of data sets in a structured way, including the use of techniques such as *Spread Operator* for creating dynamic data (e.g., unique emails).
+
+### 🔗 Front-end + Back-end Integration
+In addition to domain separation, this framework allows the integration of Back-end commands and data directly into Front-end tests. This enables:
+
+- Reuse of API commands across different testing contexts.
+- Fast Data Management: Creation and cleanup of test data via API during Web test execution.
+- Hybrid Testing (UI + API): Validating that UI actions are correctly reflected in the database/API in real-time.
+
+### 🎯 Isolated Execution by Layer
+The architecture supports the isolated execution of test suites. Depending on the context, you can:
+
+- Run suites focused exclusively on API validation, with no UI overhead.
+- Rapidly validate business rules, contracts, and data persistence.
+- Use Back-end tests as a reliable foundation for CI/CD pipelines and smoke tests.
+
+---
+
+## 🏗️ Project Structure
+
+The project is divided into two main fronts, organized by domains according to the folder structure.
+
+### Back-end (API)
+
 Full lifecycle validation (CRUD) on the ServeRest API.
 
-locators.js: URLs, selectors, and payloads (data mass).
+- `locators.js`: URLs, selectors, and payloads (data mass).
+- `commands.js`: Abstraction of technical logic (API requests).
+- `MAIN.cy.js`: Test scripts focused on business rules and data traceability.
 
-commands.js: Abstraction of technical logic (API Requests).
+### Front-end (WEB)
 
-MAIN.cy.js: Test scripts focused on business rules and data traceability.
-
-2. Front-end (WEB)
 Validation of navigation and search functionality on the Venturus website.
 
-locators.js: Element selectors and URLs.
+- `locators.js`: Element selectors and URLs.
+- `commands.js`: Custom commands for interface interaction.
+- `MAIN.cy.js`: End-to-end (E2E) test flows.
 
-commands.js: Custom commands for interface interaction.
+---
 
-MAIN.cy.js: End-to-end (E2E) test flows.
+## 🧪 Test Coverage
 
-🧪 Test Coverage
-📡 Back-end (API ServeRest)
-Focused on full data traceability:
+### 📡 Back-end (API ServeRest)
 
-Registration: Creation with a dynamic email to avoid duplication errors.
+- Registration with a dynamic email to avoid duplication.
+- Listing validation with ID verification.
+- Detailed search to validate returned data integrity.
+- Editing (PUT) with persistence validation.
+- Deletion (DELETE) to ensure idempotency and environment health.
 
-Listing Validation: Verifying if the ID is present in the global list.
+### 🖥️ Front-end (Web Venturus)
 
-Detailed Search: Validating the integrity of the returned data.
+- Secure navigation and URL consistency validation.
+- Dynamic search using centralized locator data.
+- LocalStorage, SessionStorage, and Cookies cleanup via `beforeEach`.
+- API Integration: Leveraging Back-end commands within Web scenarios for end-to-end validation.
 
-Editing (PUT): Persistence validation after data modification.
+---
 
-Deletion (DELETE): Database cleanup to ensure idempotency and environment health.
+## 🧪 How to Run the Project
 
-🖥️ Front-end (Web Venturus)
-Focused on stability and interface:
+### 1. Requirements
 
-Secure Navigation: Access validation and institutional URL consistency.
+Before you begin, you will need to have the following installed:
 
-Dynamic Search: Interaction with the search field using centralized data from locators.
+![Node](https://img.shields.io/badge/node-v22.17.1-339933?logo=node.js&logoColor=white)
+![npm](https://img.shields.io/badge/npm-v10.9.2-CB3837?logo=npm&logoColor=white)
+![Cypress](https://img.shields.io/badge/cypress-v15.9.0-17202C?logo=cypress&logoColor=white)
 
-State Management: Clearing LocalStorage, SessionStorage, and Cookies via beforeEach to ensure isolated execution.
-
-🚀 How to Run the Project
-1. Prerequisites
-Node.js (Version 18 or higher recommended).
-
-NPM or Yarn.
-
-Git.
-
-2. Installation
-Bash
-# Install project dependencies
+### 2. Installation:
 npm install
-3. Running the Tests
-🖥️ Graphical Interface (Interactive)
-Bash
+
+### 3. Running the Tests
+
+🖥️ Interactive mode:
 npx cypress open
-⚡ Terminal Mode (Headless)
-Bash
+
+⚡ Headless mode:
 npx cypress run
+
+## 📚 References
+
+- 🛠️ [Custom Commands](https://docs.cypress.io/api/cypress-api/custom-commands)
+- 📡 [API Automation](https://docs.cypress.io/api/commands/request)
+- 🎯 [Selecting Elements](https://docs.cypress.io/app/core-concepts/best-practices#Selecting-Elements)

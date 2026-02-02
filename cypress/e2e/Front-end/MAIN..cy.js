@@ -1,7 +1,11 @@
 /// <reference types="cypress" />
-import { locators as loc } from './locators';
-import './commands'
 
+//import './commands'
+import { locators as loc } from './locators';
+
+
+//import '../Back-end/commands.js';
+import { locators as loc_backend } from '../Back-end/locators.js';
 
 describe('ExemploBasicoCypress', () => {
 
@@ -20,9 +24,6 @@ describe('ExemploBasicoCypress', () => {
       win.sessionStorage.clear();
       win.localStorage.clear();
     });
-
-    // Recarrega a página para garantir um novo início
-    cy.reload(true);
 
   });
 
@@ -45,14 +46,38 @@ describe('ExemploBasicoCypress', () => {
 
       });
 
+    });
+  });
 
+  describe('BACK-END', () => {
+
+    describe('Cenários de teste - Exemplo de utilização dos comandos relacionados ao Back-end  ', () => {
+
+      it('Teste 2 - Cadastrar e Validar listagem de usuario cadastrado', () => {
+
+        cy.gerarEmailUnico().then((email) => {
+          const payload = { ...loc_backend.ServeRest.Usuario, email: email };
+
+          cy.cadastrarUsuarioApi(payload).then((resPost) => {
+            const idParaVerificar = resPost.body._id;
+
+            cy.listarUsuariosApi().then((resLista) => {
+              const encontrado = resLista.body.usuarios.some(u => u._id === idParaVerificar);
+
+              // Validação de segurança: Interrompe o teste com mensagem clara se o ID não existir
+              expect(encontrado, `✅ SUCESSO: O ID ${idParaVerificar} foi localizado corretamente na listagem`).to.be.true;
+
+              // Limpeza obrigatória após o teste
+              cy.excluirUsuarioApi(idParaVerificar);
+            });
+          });
+        });
+      });
     });
 
-  });
-
-  describe('API', () => {
 
   });
+
 
 });
 

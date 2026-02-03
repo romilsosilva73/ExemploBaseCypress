@@ -204,12 +204,12 @@ npx cypress run --spec "cypress/e2e/**/*.cy.js"
 
 Opção 2 - Executar apenas o Back-end 
 ```bash
-npx cypress run --spec "cypress/e2e/Back-end/**/*.cy.js"
+npx cypress run --spec "cypress/e2e/*/Back-end/**/*.cy.js"
 ```
 
 Opção 3 — Executar apenas o Front-end
 ```bash
-npx cypress run --spec "cypress/e2e/Front-end/**/*.cy.js"
+npx cypress run --spec "cypress/e2e/*/Front-end/**/*.cy.js"
 ```
 
 ## 📚 Referências

@@ -42,25 +42,24 @@ Em vez de repetir blocos de código complexos em todos os testes, utilizamos os 
 ### 📁 Locators Repository
 
 O arquivo `locators.js` centraliza os **selectors de UI**, **endpoints de API** e **dados de teste** utilizados nos cenários automatizados:
-
 * **Centralização:** Caso um endpoint de API ou um selector da interface seja alterado, a manutenção é realizada em um único arquivo, reduzindo impacto e esforço de manutenção.
 * **Dinamicidade:** Permite a organização e geração de massas de dados de forma estruturada, incluindo o uso de técnicas como *Spread Operator* para criação de dados dinâmicos (ex.: e-mails únicos).
 
 ### 🔗 Integração Front-end + Back-end
 
 Além da separação por domínio (Web e API), o projeto permite a integração de comandos e dados de Back-end diretamente em testes de Front-end. Essa abordagem possibilita:
-* **Reutilização de comandos de API em diferentes contextos
-* **Criação e limpeza de massa de dados via API antes ou durante testes Web
-* **Demonstração prática de testes híbridos (UI + API)
+* Reutilização de comandos de API em diferentes contextos
+* Criação e limpeza de massa de dados via API antes ou durante testes Web
+* Demonstração prática de testes híbridos (UI + API)
 
 ### 🎯 Execução Isolada por Camada
 
 A separação entre Back-end (API) e Front-end (Web) foi pensada, desde o início, para permitir a **execução isolada de suítes de teste**, conforme a necessidade do contexto. Com essa abordagem, é possível:
-* **Executar uma suíte focada exclusivamente em **validações de API**, sem dependência de interface
-* **Validar regras de negócio, contratos e persistência de dados de forma mais rápida
-* **Utilizar os testes de Back-end como base para testes de regressão e smoke tests
-* **Reduzir o custo de execução quando o objetivo for validar apenas as APIs
-* **Essa estratégia oferece maior flexibilidade na execução dos testes e facilita a adaptação do framework a diferentes pipelines e cenários de validação.
+* Executar uma suíte focada exclusivamente em **validações de API**, sem dependência de interface
+* Validar regras de negócio, contratos e persistência de dados de forma mais rápida
+* Utilizar os testes de Back-end como base para testes de regressão e smoke tests
+* Reduzir o custo de execução quando o objetivo for validar apenas as APIs
+* Essa estratégia oferece maior flexibilidade na execução dos testes e facilita a adaptação do framework a diferentes pipelines e cenários de validação.
 
 ------------------------------------------------------------------------------------
 

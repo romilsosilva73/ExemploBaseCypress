@@ -49,7 +49,6 @@ O arquivo `locators.js` centraliza os **selectors de UI**, **endpoints de API** 
 ### 🔗 Integração Front-end + Back-end
 
 Além da separação por domínio (Web e API), o projeto permite a integração de comandos e dados de Back-end diretamente em testes de Front-end. Essa abordagem possibilita:
-
 * **Reutilização de comandos de API em diferentes contextos
 * **Criação e limpeza de massa de dados via API antes ou durante testes Web
 * **Demonstração prática de testes híbridos (UI + API)
@@ -57,7 +56,6 @@ Além da separação por domínio (Web e API), o projeto permite a integração 
 ### 🎯 Execução Isolada por Camada
 
 A separação entre Back-end (API) e Front-end (Web) foi pensada, desde o início, para permitir a **execução isolada de suítes de teste**, conforme a necessidade do contexto. Com essa abordagem, é possível:
-
 * **Executar uma suíte focada exclusivamente em **validações de API**, sem dependência de interface
 * **Validar regras de negócio, contratos e persistência de dados de forma mais rápida
 * **Utilizar os testes de Back-end como base para testes de regressão e smoke tests

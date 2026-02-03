@@ -9,84 +9,32 @@
 Este repositório contém uma estrutura de automação híbrida utilizando Cypress, abrangendo testes de Front-end (Web) e Back-end (API), com foco na reutilização de comandos por meio de Custom Commands, na centralização de elementos e dados (Locator Repository) e na integração entre camadas.
 
 ```md
-ExemploBaseCypress/
-├── cypress/
-│   ├── e2e/
-│   │   ├── Back-end/
-│   │   │   ├── commands.js
-│   │   │   ├── locators.js
-│   │   │   └── MAIN.cy.js
-│   │   └── Front-end/
-│   │       ├── commands.js
-│   │       ├── locators.js
-│   │       └── MAIN.cy.js
-│   └── support/
-│           └── commands.js
-├── node_modules/
-├── .gitignore
-├── cypress.config.js
-└── README.md
-```
-
-```md
-ExemploBaseCypress/
-├── cypress/
-│   ├── e2e/
-│   │   ├── Funcionalidade_1/
-│   │   │   ├── Back-end/
-│   │   │   │   ├── MAIN.cy.js
-│   │   │   │   ├── commands.js
-│   │   │   │   ├── locators.js
-│   │   │   ├── Front-end/
-│   │   │   │   ├── MAIN.cy.js
-│   │   │   │   ├── commands.js
-│   │   │   │   ├── locators.js
-│   └── support/
-│           └── commands.js
-├── node_modules/
-├── .gitignore
-├── cypress.config.js
-└── README.md
-```
-
-
-```md
-ExemploBaseCypress/
-├── cypress/
-│   ├── e2e/
-│   │   ├── Funcionalidade_1/
-│   │   │   ├── Back-end/
-│   │   │   │   ├── MAIN.cy.js
-│   │   │   │   ├── commands.js
-│   │   │   │   ├── locators.js
-│   │   │   ├── Front-end/
-│   │   │   │   ├── MAIN.cy.js
-│   │   │   │   ├── commands.js
-│   │   │   │   ├── locators.js
-│   │   ├── Funcionalidade_2/
-│   │   │   ├── Back-end/
-│   │   │   │   ├── MAIN.cy.js
-│   │   │   │   ├── commands.js
-│   │   │   │   ├── locators.js
-│   │   │   ├── Front-end/
-│   │   │   │   ├── MAIN.cy.js
-│   │   │   │   ├── commands.js
-│   │   │   │   ├── locators.js
-│   │   ├── Funcionalidade_3/
-│   │   │   ├── Back-end/
-│   │   │   │   ├── MAIN.cy.js
-│   │   │   │   ├── commands.js
-│   │   │   │   ├── locators.js
-│   │   │   ├── Front-end/
-│   │   │   │   ├── MAIN.cy.js
-│   │   │   │   ├── commands.js
-│   │   │   │   ├── locators.js
-│   └── support/
-│           └── commands.js
-├── node_modules/
-├── .gitignore
-├── cypress.config.js
-└── README.md
+EXEMPLOBASECYPRESS/
+└── ExemploBaseCypress/
+    ├── cypress/
+    │   ├── e2e/
+    │   │   ├── Funcionalidade_1/
+    │   │   │   ├── Back-end/
+    │   │   │   │   ├── commands.js       <-- Comandos customizados (API ServeRest)
+    │   │   │   │   ├── locators.js       <-- Mapeamento de endpoints e payloads
+    │   │   │   │   └── MAIN.cy.js        <-- Testes CRUD de Usuários
+    │   │   │   └── Front-end/
+    │   │   │       ├── commands.js       <-- Comandos customizados (UI Venturus)
+    │   │   │       ├── locators.js       <-- Seletores de elementos da interface
+    │   │   │       └── MAIN..cy.js       <-- Teste de acesso e validação de URL
+    │   │   ├── Funcionalidade_2/         <-- Estrutura idêntica à Funcionalidade_1
+    │   │   │   ├── Back-end/
+    │   │   │   └── Front-end/
+    │   │   └── Funcionalidade_3/         <-- Estrutura idêntica à Funcionalidade_1
+    │   │       ├── Back-end/
+    │   │       └── Front-end/
+    │   └── support/
+    │       ├── commands.js               <-- Ponto central de importação dos comandos
+    │       └── e2e.js                    <-- Configurações globais do framework
+    ├── node_modules/
+    ├── .gitignore
+    ├── cypress.config.js
+    └── README.md
 ```
 
 ## 📍 Arquitetura e Estratégia

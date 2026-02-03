@@ -33,7 +33,7 @@ ExemploBaseCypress/
 A arquitetura deste projeto foi desenhada para separar a **Lógica de Teste** da **Implementação Técnica**, utilizando padrões que facilitam a manutenção e a escala.
 
 ### 🛠️ Custom Commands
-Em vez de repetir blocos de código complexos em todos os testes, utilizamos os `Cypress Commands` localizados dentro de cada contexto (Back-end/Front-end).
+Em vez de repetir blocos de código complexos em todos os testes, utilizamos os `Cypress Commands` localizados dentro de cada contexto (Back-end/Front-end):
 
 * **Encapsulamento:** Escondemos a complexidade de requisições API (headers, métodos, status codes) e interações repetitivas de UI.
 * **Legibilidade:** O teste principal (`MAIN.cy.js`) torna-se muito mais limpo, focando apenas no fluxo de negócio.
@@ -41,36 +41,28 @@ Em vez de repetir blocos de código complexos em todos os testes, utilizamos os 
 
 ### 📁 Locators 
 
-O arquivo `locators.js` centraliza os **selectors de UI**, **endpoints de API** e **dados de teste** utilizados nos cenários automatizados.
+O arquivo `locators.js` centraliza os **selectors de UI**, **endpoints de API** e **dados de teste** utilizados nos cenários automatizados:
 
 * **Centralização:** Caso um endpoint de API ou um selector da interface seja alterado, a manutenção é realizada em um único arquivo, reduzindo impacto e esforço de manutenção.
 * **Dinamicidade:** Permite a organização e geração de massas de dados de forma estruturada, incluindo o uso de técnicas como *Spread Operator* para criação de dados dinâmicos (ex.: e-mails únicos).
 
 ### 🔗 Integração Front-end + Back-end
 
-Além da separação por domínio (Web e API), o projeto permite a integração de comandos e dados de Back-end diretamente em testes de Front-end*.
+Além da separação por domínio (Web e API), o projeto permite a integração de comandos e dados de Back-end diretamente em testes de Front-end. Essa abordagem possibilita:
 
-Essa abordagem possibilita:
-
-- Reutilização de comandos de API em diferentes contextos
-- Criação e limpeza de massa de dados via API antes ou durante testes Web
-- Demonstração prática de testes híbridos (UI + API)
+* **Reutilização de comandos de API em diferentes contextos
+* **Criação e limpeza de massa de dados via API antes ou durante testes Web
+* **Demonstração prática de testes híbridos (UI + API)
 
 ### 🎯 Execução Isolada por Camada
 
-A separação entre Back-end (API) e Front-end (Web) foi pensada, desde o início,
-para permitir a **execução isolada de suítes de teste**, conforme a necessidade
-do contexto.
+A separação entre Back-end (API) e Front-end (Web) foi pensada, desde o início, para permitir a **execução isolada de suítes de teste**, conforme a necessidade do contexto. Com essa abordagem, é possível:
 
-Com essa abordagem, é possível:
-
-- Executar uma suíte focada exclusivamente em **validações de API**, sem dependência de interface
-- Validar regras de negócio, contratos e persistência de dados de forma mais rápida
-- Utilizar os testes de Back-end como base para testes de regressão e smoke tests
-- Reduzir o custo de execução quando o objetivo for validar apenas as APIs
-
-Essa estratégia oferece maior flexibilidade na execução dos testes e facilita
-a adaptação do framework a diferentes pipelines e cenários de validação.
+* **Executar uma suíte focada exclusivamente em **validações de API**, sem dependência de interface
+* **Validar regras de negócio, contratos e persistência de dados de forma mais rápida
+* **Utilizar os testes de Back-end como base para testes de regressão e smoke tests
+* **Reduzir o custo de execução quando o objetivo for validar apenas as APIs
+* **Essa estratégia oferece maior flexibilidade na execução dos testes e facilita a adaptação do framework a diferentes pipelines e cenários de validação.
 
 ------------------------------------------------------------------------------------
 
@@ -96,11 +88,11 @@ Validação de navegação e funcionalidade de busca no site da [Venturus](https
 
 ### 📡 Back-end (API ServeRest)
 Foco em rastreabilidade total do dado:
-1. **Cadastro**: Criação com e-mail dinâmico para evitar duplicidade.
-2. **Validação de Listagem**: Verificação da presença do ID na lista global.
-3. **Consulta Detalhada**: Validação da integridade dos dados retornados.
-4. **Edição (PUT)**: Validação de persistência após alteração.
-5. **Exclusão (DELETE)**: Limpeza da base para garantir a idempotência e saúde do ambiente.
+* **Cadastro**: Criação com e-mail dinâmico para evitar duplicidade.
+* **Validação de Listagem**: Verificação da presença do ID na lista global.
+* **Consulta Detalhada**: Validação da integridade dos dados retornados.
+* **Edição (PUT)**: Validação de persistência após alteração.
+* **Exclusão (DELETE)**: Limpeza da base para garantir a idempotência e saúde do ambiente.
 
 ### 🖥️ Front-end (Web Venturus)
 Foco em estabilidade e interface:
@@ -108,7 +100,6 @@ Foco em estabilidade e interface:
 * **Busca Dinâmica**: Interação com o campo de pesquisa utilizando dados centralizados nos locators.
 * **Gerenciamento de Estado**: Limpeza de `LocalStorage`, `SessionStorage` e `Cookies` via `beforeEach` para garantir execução isolada.
 * **Integração com API**: Utilização de comandos de Back-end em cenários Web.
-
 
 ------------------------------------------------------------------------------------
 
@@ -162,7 +153,6 @@ Opção 3 — Executar apenas o Front-end
 ```bash
 npx cypress run --spec "cypress/e2e/Front-end/**/*.cy.js"
 ```
-
 
 ## 📚 Referências
 

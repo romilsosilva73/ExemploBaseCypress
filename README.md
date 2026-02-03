@@ -39,7 +39,7 @@ Em vez de repetir blocos de código complexos em todos os testes, utilizamos os 
 * **Legibilidade:** O teste principal (`MAIN.cy.js`) torna-se muito mais limpo, focando apenas no fluxo de negócio.
 * **Reutilização:** Um mesmo comando pode ser usado por múltiplos arquivos de teste, reduzindo a duplicidade de código.
 
-### 📁 Locators 
+### 📁 Locators Repository
 
 O arquivo `locators.js` centraliza os **selectors de UI**, **endpoints de API** e **dados de teste** utilizados nos cenários automatizados:
 

@@ -41,6 +41,28 @@ ExemploBaseCypress/
 │   │   │   │   ├── MAIN.cy.js
 │   │   │   │   ├── commands.js
 │   │   │   │   ├── locators.js
+│   └── support/
+│           └── commands.js
+├── node_modules/
+├── .gitignore
+├── cypress.config.js
+└── README.md
+```
+
+
+```md
+ExemploBaseCypress/
+├── cypress/
+│   ├── e2e/
+│   │   ├── Funcionalidade_1/
+│   │   │   ├── Back-end/
+│   │   │   │   ├── MAIN.cy.js
+│   │   │   │   ├── commands.js
+│   │   │   │   ├── locators.js
+│   │   │   ├── Front-end/
+│   │   │   │   ├── MAIN.cy.js
+│   │   │   │   ├── commands.js
+│   │   │   │   ├── locators.js
 │   │   ├── Funcionalidade_2/
 │   │   │   ├── Back-end/
 │   │   │   │   ├── MAIN.cy.js

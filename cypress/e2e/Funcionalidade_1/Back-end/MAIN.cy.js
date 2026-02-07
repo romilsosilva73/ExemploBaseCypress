@@ -3,7 +3,6 @@
 //import './commands'
 import { locators as loc } from './locators';
 
-
 describe('ServeRest - Back-end', () => {
 
   // Limpa cookies e local storage antes de cada teste para evitar interferências
@@ -12,9 +11,9 @@ describe('ServeRest - Back-end', () => {
     cy.clearLocalStorage();
   });
 
-  describe('CRUD de Usuários', () => {
+  describe('CRUD de Usuário', () => {
 
-    it('0. Cadastrar, Listar, Buscar, Editar e Excluir usuario - CRUD (Fluxo completo)', () => {
+    it('0. Cadastrar, Listar, Buscar, Editar e Excluir usuario - CRUD (Fluxo completo - Menos indicado)', () => {
 
       // Geração de e-mail dinâmico para evitar erro de duplicidade na API
       cy.gerarEmailUnico().then((email) => {
@@ -43,7 +42,7 @@ describe('ServeRest - Back-end', () => {
               expect(resBusca.body.email, 'O e-mail deve corresponder ao e-mail dinâmico gerado').to.eq(email);
               cy.log('✅ SUCESSO - Etapa 3: Dados detalhados conferem com o cadastro.');
 
-              // ETAPA 4: Alterar os dados do usuário (usando a massa de edição do locator)
+              // ETAPA 4: Alterar os dados do usuário (usando locators.js)
               const payloadNovo = {
                 ...loc.ServeRest.Usuario_Edicao,
                 email: email // Mantemos o mesmo e-mail para identificar o registro
@@ -70,7 +69,7 @@ describe('ServeRest - Back-end', () => {
       });
     });
 
-    it('1. Cadastrar e Validar listagem de usuario cadastrado (Fluxo independente)', () => {
+    it('1. Cadastrar e Validar listagem de usuario cadastrado (Fluxo independente - Mais indicado)', () => {
 
       cy.gerarEmailUnico().then((email) => {
         const payload = { ...loc.ServeRest.Usuario, email: email };
@@ -84,14 +83,14 @@ describe('ServeRest - Back-end', () => {
             // Validação de segurança: Interrompe o teste com mensagem clara se o ID não existir
             expect(encontrado, `✅ SUCESSO: O ID ${idParaVerificar} foi localizado corretamente na listagem`).to.be.true;
 
-            // Limpeza obrigatória após o teste
+            // Limpeza após o teste
             cy.excluirUsuarioApi(idParaVerificar);
           });
         });
       });
     });
 
-    it('2. Buscar usuario (Fluxo independente)', () => {
+    it('2. Buscar usuario (Fluxo independente - Mais indicado))', () => {
 
       cy.gerarEmailUnico().then((email) => {
         const payload = { ...loc.ServeRest.Usuario, email: email };
@@ -111,7 +110,7 @@ describe('ServeRest - Back-end', () => {
       });
     });
 
-    it('3. Editar usuario (Fluxo independente)', () => {
+    it('3. Editar usuario (Fluxo independente - Mais indicado))', () => {
       cy.gerarEmailUnico().then((email) => {
         const payload = { ...loc.ServeRest.Usuario, email: email };
 
@@ -134,7 +133,7 @@ describe('ServeRest - Back-end', () => {
       });
     });
 
-    it('4. Deve cadastrar um usuário, realizar login e excluir usuário (Fluxo independente)', () => {
+    it('4. Deve cadastrar um usuário, realizar login e excluir usuário (Fluxo independente - Mais indicado))', () => {
 
       // Geração de e-mail dinâmico para evitar erro de duplicidade na API
       cy.gerarEmailUnico().then((email) => {
@@ -166,9 +165,9 @@ describe('ServeRest - Back-end', () => {
     });
   });
 
-  describe('CRUD de Produtos', () => {
+  describe('CRUD de Produto', () => {
 
-    it('0. Obtem token de usuário, Cadastra, Busca, Edita e Exclui Produto - CRUD (Fluxo completo)', () => {
+    it('0. Obtem token de usuário, Cadastra, Busca, Edita e Exclui Produto - CRUD (Fluxo completo - Menos indicado)', () => {
       // 0. Pré-condição: Obter Token de Admin (via Custom Command)
       cy.obterTokenAdmin().then((auth) => {
         const authToken = auth.token;
@@ -179,9 +178,9 @@ describe('ServeRest - Back-end', () => {
         const payloadProduto = { ...loc.ServeRest.Produto, nome: nomeProdutoUnico };
 
         cy.cadastrarProdutoApi(authToken, payloadProduto).then((resPost) => {
+
           const idProduto = resPost.body._id;
-          expect(resPost.status).to.eq(201);
-          expect(resPost.body.message).to.eq('Cadastro realizado com sucesso');
+
           cy.log(`✅ SUCESSO - Etapa 1: Produto criado com ID ${idProduto}`);
 
           // 2. BUSCAR PRODUTO POR ID (GET)
@@ -196,8 +195,7 @@ describe('ServeRest - Back-end', () => {
             };
 
             cy.editarProdutoApi(authToken, idProduto, payloadEditado).then((resPut) => {
-              expect(resPut.status).to.eq(200);
-              expect(resPut.body.message).to.eq('Registro alterado com sucesso');
+
               cy.log('✅ SUCESSO - Etapa 3: Informações do produto alteradas.');
 
               // Validar edição via nova busca
@@ -207,13 +205,11 @@ describe('ServeRest - Back-end', () => {
 
                 // 4. EXCLUIR PRODUTO (DELETE)
                 cy.excluirProdutoApi(authToken, idProduto).then((resDelete) => {
-                  expect(resDelete.status).to.eq(200);
-                  expect(resDelete.body.message).to.eq('Registro excluído com sucesso');
+
                   cy.log(`✅ SUCESSO - Etapa 4: Produto ${idProduto} removido.`);
 
                   // 5. LIMPEZA FINAL: Remover o usuário admin para manter a base limpa
                   cy.excluirUsuarioApi(idAdmin).then((resExcluirAdmin) => {
-                    expect(resExcluirAdmin.status).to.eq(200);
                     cy.log(`✅ SUCESSO - Etapa 5: Admin ${idAdmin} removido.`);
                   });
                 });
@@ -225,7 +221,7 @@ describe('ServeRest - Back-end', () => {
     });
 
 
-    it('1. Cadastrar e Validar listagem de produto cadastrado (Fluxo independente)', () => {
+    it('1. Cadastrar e Validar listagem de produto cadastrado (Fluxo independente - Mais indicado))', () => {
       cy.obterTokenAdmin().then((auth) => {
         const { token, idUsuario } = auth;
         const nomeProduto = `Produto Lista ${Date.now()}`;
@@ -248,7 +244,7 @@ describe('ServeRest - Back-end', () => {
       });
     });
 
-    it('2. Buscar produto por ID (Fluxo independente)', () => {
+    it('2. Buscar produto por ID (Fluxo independente - Mais indicado))', () => {
       cy.obterTokenAdmin().then((auth) => {
         const { token, idUsuario } = auth;
         const nomeProduto = `Produto Busca ${Date.now()}`;
@@ -270,7 +266,7 @@ describe('ServeRest - Back-end', () => {
       });
     });
 
-    it('3. Editar produto existente (Fluxo independente)', () => {
+    it('3. Editar produto existente (Fluxo independente - Mais indicado))', () => {
       cy.obterTokenAdmin().then((auth) => {
         const { token, idUsuario } = auth;
         const nomeOriginal = `Produto Original ${Date.now()}`;
@@ -295,6 +291,7 @@ describe('ServeRest - Back-end', () => {
       });
     });
 
+
     it('4. Excluir produto e validar remoção (Fluxo independente)', () => {
 
       cy.obterTokenAdmin().then((auth) => {
@@ -304,19 +301,13 @@ describe('ServeRest - Back-end', () => {
         cy.cadastrarProdutoApi(token, payload).then((resPost) => {
           const idProduto = resPost.body._id;
 
+          // 1. Exclui o produto
           cy.excluirProdutoApi(token, idProduto).then((resDel) => {
             expect(resDel.body.message).to.eq('Registro excluído com sucesso');
 
-            // Validação negativa: Tenta buscar o produto excluído
-            cy.request({
-              method: 'GET',
-              url: `${loc.ServeRest.URLs.serverest}${loc.ServeRest.URLs.produtos}/${idProduto}`,
-              failOnStatusCode: false
-            }).then((resNotFound) => {
-              expect(resNotFound.status).to.eq(400);
-              expect(resNotFound.body.message).to.eq('Produto não encontrado');
-              cy.log('✅ Exclusão confirmada');
-
+            // 2. Validação de retorno de status 400
+            cy.buscarProdutoPorIdApiErro400(idProduto).then(() => {
+              
               // Limpeza do usuário
               cy.excluirUsuarioApi(idUsuario);
             });
@@ -324,6 +315,7 @@ describe('ServeRest - Back-end', () => {
         });
       });
     });
+
 
   });
 

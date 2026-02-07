@@ -4,16 +4,20 @@ export const locators = {
   WEB: {
     serverest: {
       url: 'https://front.serverest.dev/login',
+      rotas: {
+        cadastro: '/cadastrarusuarios',
+        dashboard: '/admin/home'
+      },
       login: {
         email: '[data-testid="email"]',
         senha: '[data-testid="senha"]',
         btn_entrar: '[data-testid="entrar"]',
-        btn_ir_para_cadastro: '[data-testid="cadastrar"]' // Link na tela de login
+        btn_ir_para_cadastro: '[data-testid="cadastrar"]'
       },
       cadastro: {
         nome: '[data-testid="nome"]',
         email: '[data-testid="email"]',
-        senha: '[data-testid="password"]', // Note que no cadastro o id costuma ser password
+        senha: '[data-testid="password"]',
         btn_finalizar_cadastro: '[data-testid="cadastrar"]'
       },
       dashboard: {
@@ -24,6 +28,19 @@ export const locators = {
       },
       comum: {
         alertas: '.alert'
+      },
+      // --- NOVIDADE: MENSAGENS DO SISTEMA ---
+      mensagens: {
+        erro: {
+          nome_obrigatorio: 'Nome é obrigatório',
+          email_obrigatorio: 'Email é obrigatório',
+          senha_obrigatorio: 'Password é obrigatório',
+          login_invalido: 'Email e/ou senha inválidos'
+        }
+      },
+      // --- NOVIDADE: MASSA DE DADOS FIXA ---
+      massa: {
+        nome_padrao: 'Usuario Teste Front'
       }
     }
   }

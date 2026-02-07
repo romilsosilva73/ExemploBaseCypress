@@ -1,16 +1,14 @@
 import { locators as loc } from './locators.js';
 
-Cypress.Commands.add('AcessaSiteVenturus', () => {
-
-  // Visita a tela de login
-  cy.visit(loc.WEB.pagina_inicial.url.venturus);
-
+Cypress.Commands.add('loginServeRest', (email, senha) => {
+  cy.visit(loc.WEB.serverest.url);
+  cy.get(loc.WEB.serverest.login.email).type(email);
+  cy.get(loc.WEB.serverest.login.senha).type(senha);
+  cy.get(loc.WEB.serverest.login.btn_entrar).click();
 });
 
-Cypress.Commands.add('ValidaUrlSiteVenturus', () => {
-
-  //Validar se a ULR do site atual é a esperada
-
-  cy.url().should('eq', loc.WEB.pagina_inicial.url.venturus)
-
+Cypress.Commands.add('validaPresencaNaTabela', (valor) => {
+  cy.get(loc.WEB.serverest.dashboard.tabela)
+    .should('be.visible')
+    .and('contain', valor);
 });

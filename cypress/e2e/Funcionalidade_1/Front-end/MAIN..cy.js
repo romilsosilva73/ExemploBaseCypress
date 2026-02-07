@@ -68,7 +68,7 @@ describe('ServeRest - Validação de Dados', () => {
 
   describe('BACK-END - Exemplo de como reutilizar comandos relacionados ao Back-end', () => {
 
-    it('Teste 0 - Cadastrar e Validar listagem de usuario cadastrado', () => {
+    it('0. Cadastrar e Validar listagem de usuario cadastrado', () => {
 
       cy.gerarEmailUnico().then((email) => {
         const payload = { ...loc_backend.ServeRest.Usuario, email: email };

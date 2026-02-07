@@ -90,7 +90,7 @@ describe('ServeRest - Back-end', () => {
       });
     });
 
-    it('2. Buscar usuario (Fluxo independente - Mais indicado))', () => {
+    it('2. Buscar usuario (Fluxo independente - Mais indicado)', () => {
 
       cy.gerarEmailUnico().then((email) => {
         const payload = { ...loc.ServeRest.Usuario, email: email };
@@ -110,7 +110,7 @@ describe('ServeRest - Back-end', () => {
       });
     });
 
-    it('3. Editar usuario (Fluxo independente - Mais indicado))', () => {
+    it('3. Editar usuario (Fluxo independente - Mais indicado)', () => {
       cy.gerarEmailUnico().then((email) => {
         const payload = { ...loc.ServeRest.Usuario, email: email };
 
@@ -133,7 +133,7 @@ describe('ServeRest - Back-end', () => {
       });
     });
 
-    it('4. Deve cadastrar um usuário, realizar login e excluir usuário (Fluxo independente - Mais indicado))', () => {
+    it('4. Deve cadastrar um usuário, realizar login e excluir usuário (Fluxo independente - Mais indicado)', () => {
 
       // Geração de e-mail dinâmico para evitar erro de duplicidade na API
       cy.gerarEmailUnico().then((email) => {
@@ -221,7 +221,7 @@ describe('ServeRest - Back-end', () => {
     });
 
 
-    it('1. Cadastrar e Validar listagem de produto cadastrado (Fluxo independente - Mais indicado))', () => {
+    it('1. Cadastrar e Validar listagem de produto cadastrado (Fluxo independente - Mais indicado)', () => {
       cy.obterTokenAdmin().then((auth) => {
         const { token, idUsuario } = auth;
         const nomeProduto = `Produto Lista ${Date.now()}`;
@@ -244,7 +244,7 @@ describe('ServeRest - Back-end', () => {
       });
     });
 
-    it('2. Buscar produto por ID (Fluxo independente - Mais indicado))', () => {
+    it('2. Buscar produto por ID (Fluxo independente - Mais indicado)', () => {
       cy.obterTokenAdmin().then((auth) => {
         const { token, idUsuario } = auth;
         const nomeProduto = `Produto Busca ${Date.now()}`;
@@ -266,7 +266,7 @@ describe('ServeRest - Back-end', () => {
       });
     });
 
-    it('3. Editar produto existente (Fluxo independente - Mais indicado))', () => {
+    it('3. Editar produto existente (Fluxo independente - Mais indicado)', () => {
       cy.obterTokenAdmin().then((auth) => {
         const { token, idUsuario } = auth;
         const nomeOriginal = `Produto Original ${Date.now()}`;
@@ -307,7 +307,7 @@ describe('ServeRest - Back-end', () => {
 
             // 2. Validação de retorno de status 400
             cy.buscarProdutoPorIdApiErro400(idProduto).then(() => {
-              
+
               // Limpeza do usuário
               cy.excluirUsuarioApi(idUsuario);
             });

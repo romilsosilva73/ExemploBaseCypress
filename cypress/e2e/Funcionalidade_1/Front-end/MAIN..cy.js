@@ -15,32 +15,47 @@ describe('ServeRest - Validação de Dados', () => {
 
     it('1. Deve validar as mensagens de campos obrigatórios no cadastro de usuários', () => {
       cy.visit(loc.WEB.serverest.url);
-      cy.get(loc.WEB.serverest.login.btn_ir_para_cadastro).click();
+      cy.get(loc.WEB.serverest.login.btn_ir_para_cadastro, { timeout: 10000 })
+        .click();
 
       // Validação usando a rota centralizada
       cy.url().should('include', loc.WEB.serverest.rotas.cadastro);
 
-      cy.get(loc.WEB.serverest.cadastro.btn_finalizar_cadastro).click();
+      cy.get(loc.WEB.serverest.cadastro.btn_finalizar_cadastro, { timeout: 10000 })
+        .click();
 
       // Validações usando as mensagens centralizadas
-      cy.get(loc.WEB.serverest.comum.alertas).should('be.visible');
+      cy.get(loc.WEB.serverest.comum.alertas, { timeout: 10000 })
+        .should('be.visible');
 
-      cy.contains(loc.WEB.serverest.mensagens.erro.nome_obrigatorio).should('be.visible');
-      cy.contains(loc.WEB.serverest.mensagens.erro.email_obrigatorio).should('be.visible');
-      cy.contains(loc.WEB.serverest.mensagens.erro.senha_obrigatorio).should('be.visible');
+      cy.contains(loc.WEB.serverest.mensagens.erro.nome_obrigatorio, { timeout: 10000 })
+        .should('be.visible');
+      cy.contains(loc.WEB.serverest.mensagens.erro.email_obrigatorio, { timeout: 10000 })
+        .should('be.visible');
+      cy.contains(loc.WEB.serverest.mensagens.erro.senha_obrigatorio, { timeout: 10000 })
+        .should('be.visible');
     });
 
-    it('2. Deve validar mensagem de erro com senha inválida', () => {
+    
+   it('2. Deve validar mensagem de erro com senha inválida', () => {
       cy.visit(loc.WEB.serverest.url);
-      // Email pode ser dinâmico ou fixo, mas a mensagem de erro deve ser centralizada
-      cy.get(loc.WEB.serverest.login.email).type('usuario_inexistente@teste.com');
-      cy.get(loc.WEB.serverest.login.senha).type('123456');
-      cy.get(loc.WEB.serverest.login.btn_entrar).click();
+      
+      // Lendo a massa de dados do locator
+      cy.get(loc.WEB.serverest.login.email, { timeout: 10000 })
+        .type(loc.WEB.serverest.massa.login_invalido.email);
+        
+      cy.get(loc.WEB.serverest.login.senha, { timeout: 10000 })
+        .type(loc.WEB.serverest.massa.login_invalido.senha);
+        
+      cy.get(loc.WEB.serverest.login.btn_entrar, { timeout: 10000 })
+        .click();
 
-      cy.get(loc.WEB.serverest.comum.alertas)
+      cy.get(loc.WEB.serverest.comum.alertas, { timeout: 10000 })
         .should('be.visible')
         .and('contain', loc.WEB.serverest.mensagens.erro.login_invalido);
     });
+
+
 
     it('3. Deve validar que o usuário cadastrado via API consta na listagem do Front-end', () => {
       cy.gerarEmailUnico().then((email) => {
@@ -52,7 +67,8 @@ describe('ServeRest - Validação de Dados', () => {
           const idUsuario = res.body._id;
 
           cy.loginServeRest(email, loc_backend.ServeRest.Usuario.password);
-          cy.get(loc.WEB.serverest.dashboard.btn_listar_usuarios).click();
+          cy.get(loc.WEB.serverest.dashboard.btn_listar_usuarios, { timeout: 10000 })
+            .click();
 
           cy.validaPresencaNaTabela(nome);
 

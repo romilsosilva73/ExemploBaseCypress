@@ -29,7 +29,7 @@ export const locators = {
       comum: {
         alertas: '.alert'
       },
-      // --- NOVIDADE: MENSAGENS DO SISTEMA ---
+      // --- MENSAGENS DO SISTEMA PARA VALIDAÇÃO ---
       mensagens: {
         erro: {
           nome_obrigatorio: 'Nome é obrigatório',
@@ -38,9 +38,13 @@ export const locators = {
           login_invalido: 'Email e/ou senha inválidos'
         }
       },
-      // --- NOVIDADE: MASSA DE DADOS FIXA ---
+      // --- MASSA DE DADOS PARA INPUTS (.type) ---
       massa: {
-        nome_padrao: 'Usuario Teste Front'
+        nome_padrao: 'Usuario Teste Front',
+        login_invalido: {
+          email: 'usuario_inexistente@teste.com',
+          senha: '123456'
+        }
       }
     }
   }
